@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.vqhcovid">
+    <!-- thêm để ket noi internet và android:usesCleartextTraffic="true" đẻ fix lỗi chuối khi get api -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_virus"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_virus_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.VQHCovid"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".WebviewActivity" />
+        <activity android:name=".InformationRssActivity" />
+        <activity android:name=".PreventionCovidActivity" />
+        <activity android:name=".Chartcovid" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
