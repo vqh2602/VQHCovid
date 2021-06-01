@@ -1,30 +1,22 @@
 package com.example.vqhcovid;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.widget.Toolbar;
-//import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-//import android.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.vqhcovid.API.ApiService;
 import com.example.vqhcovid.Modul.Covid;
@@ -236,8 +228,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         } else if (id == R.id.tintuc_main) {
             //Toast.makeText(HomeActivity.this,"mask click",Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(HomeActivity.this, InformationRssActivity.class);
+//            Intent intent = new Intent(HomeActivity.this, InformationRssActivity.class);
+
+            Intent intent = new Intent(HomeActivity.this, NewsActivity.class);
             startActivity(intent);
+
         } else if (id == R.id.map_main) {
             //Toast.makeText(HomeActivity.this,"mask click",Toast.LENGTH_LONG).show();
             Intent intent = new Intent(HomeActivity.this, MapActivity.class);

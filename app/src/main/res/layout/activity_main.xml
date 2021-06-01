@@ -15,27 +15,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.41000003">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/imageView"-->
-<!--            android:layout_width="200dp"-->
-<!--            android:layout_height="203dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:scaleType="fitCenter"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:srcCompat="@drawable/coronavirus_400px" />-->
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="200dp"
             android:layout_height="203dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/covid19_splash"
-            tools:ignore="MissingConstraints" />
+            app:srcCompat="@drawable/coronavirus_400px" />
 
         <TextView
             android:id="@+id/textView"
@@ -47,7 +36,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/animationView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/textView21"

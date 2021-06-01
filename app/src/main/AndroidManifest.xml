@@ -4,6 +4,11 @@
     <!-- thêm để ket noi internet và android:usesCleartextTraffic="true" đẻ fix lỗi chuối khi get api -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!--check network permissions-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--check wifi state-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_virus"
@@ -13,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VQHCovid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".MapActivity" />
         <activity android:name=".WebviewActivity" />
         <activity android:name=".InformationRssActivity" />
         <activity android:name=".PreventionCovidActivity" />

@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.huawei.agconnect' //huawei
 }
 
 android {
@@ -50,5 +51,9 @@ dependencies {
 
     // hoạt ảnh động
     implementation "com.airbnb.android:lottie:3.4.0"
+
+    //huawei
+    implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
+    implementation 'com.huawei.hms:hwid:5.2.0.300'
 
 }
