@@ -51,6 +51,8 @@ dependencies {
 
     // hoạt ảnh động
     implementation "com.airbnb.android:lottie:3.4.0"
+    // display image library
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
     //huawei
     implementation 'com.huawei.agconnect:agconnect-core:1.5.2.300'
