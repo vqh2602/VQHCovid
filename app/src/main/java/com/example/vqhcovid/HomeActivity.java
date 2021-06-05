@@ -3,6 +3,7 @@ package com.example.vqhcovid;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.vqhcovid.API.ApiService;
 import com.example.vqhcovid.Modul.Covid;
 import com.google.android.material.navigation.NavigationView;
+import com.huawei.hmf.tasks.OnCompleteListener;
+import com.huawei.hmf.tasks.Task;
+import com.huawei.hms.support.account.AccountAuthManager;
+import com.huawei.hms.support.account.request.AccountAuthParams;
+import com.huawei.hms.support.account.request.AccountAuthParamsHelper;
+import com.huawei.hms.support.account.service.AccountAuthService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,11 +39,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ListView listView;
-    TextView text_canhiem, text_tuvong, text_hoiphuc, text_dieutri;
+    TextView text_canhiem, text_tuvong, text_hoiphuc, text_dieutri,textViewacc;
     ConstraintLayout layout1;
     Button suckhoe, yte, vietnam, thegioi;
+
     String check = "0";
 
+    private AccountAuthService mAuthManager;
+    private AccountAuthParams mAuthParam;
+    String displayname_check ="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,12 +122,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         yte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, InformationRssActivity.class);
+                Intent intent = new Intent(HomeActivity.this, NewsActivity.class);
                 startActivity(intent);
             }
         });
 
         //Toast.makeText(HomeActivity.this,"Phát Triển Bởi: Vương Quang Huy - 19A02",Toast.LENGTH_LONG).show();
+
+        dulieuinten();
+
     }
 
     //lay gia tri tu api
@@ -210,6 +224,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         yte = (Button) findViewById(R.id.buttonyte);
         vietnam = (Button) findViewById(R.id.vietnam_api);
         thegioi = (Button) findViewById(R.id.thegioi_api);
+        textViewacc = (TextView) findViewById(R.id.textViewacc);
 //        listView = (ListView) findViewById(R.id.listview_menu);
     }
 
@@ -218,10 +233,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.Home_main) {
-            // Toast.makeText(HomeActivity.this,"Home click",Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(HomeActivity.this, Chartcovid.class);
-            intent.putExtra("check_input", check);
-            startActivity(intent);
+            //check
+            if(displayname_check != null){
+                logout();
+            }
+            else {
+                Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+
         } else if (id == R.id.mask_main) {
             //Toast.makeText(HomeActivity.this,"mask click",Toast.LENGTH_LONG).show();
             Intent intent = new Intent(HomeActivity.this, PreventionCovidActivity.class);
@@ -260,5 +282,45 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         Uri uri = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
+    }
+
+    //check du lieu intent
+    private void dulieuinten(){
+        Intent intent = getIntent();
+        String displayname = intent.getStringExtra("Displayname");
+        displayname_check = displayname;
+            //check
+            if(displayname_check != null){
+                Toast.makeText(HomeActivity.this,"Xin Chào: "+displayname,Toast.LENGTH_LONG).show();
+                textViewacc.setText("Xin chào: "+displayname_check);
+            }
+            else {
+              Toast.makeText(HomeActivity.this,"Bạn chưa đăng nhập ",Toast.LENGTH_LONG).show();
+            }
+
+
+    }
+
+    //logout
+    private void logout(){
+        // tạo servier
+        mAuthParam = new AccountAuthParamsHelper(AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM)
+                .setIdToken()
+                .setAccessToken()
+                .createParams();
+        mAuthManager = AccountAuthManager.getService(HomeActivity.this, mAuthParam);
+        // đăng xuất
+        Task<Void> signOutTask = mAuthManager.signOut();
+        signOutTask.addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(Task<Void> task) {
+                //Processing after the sign-out.
+                Log.i("MainActivitylogout", "signOut complete");
+                Toast.makeText(HomeActivity.this,"Đã Đăng Xuất" ,Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

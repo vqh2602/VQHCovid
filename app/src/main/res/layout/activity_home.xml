@@ -40,6 +40,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar_menu">
 
+                <TextView
+                    android:id="@+id/textViewacc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bạn chưa đăng nhập"
+                    app:layout_constraintBottom_toBottomOf="@+id/vietnam_api"
+                    app:layout_constraintEnd_toStartOf="@+id/vietnam_api"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/vietnam_api" />
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView"
                     android:layout_width="183dp"
