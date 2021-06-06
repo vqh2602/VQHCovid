@@ -1,6 +1,7 @@
 package com.example.vqhcovid;
 
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,9 @@ public class MapActivity extends AppCompatActivity {
 
         webview_map = (WebView)findViewById(R.id.webview_map);
 
-        webview_map.loadUrl("https://bandodichte.bacgiang.gov.vn/bacgiang?locale=vn");
+        WebSettings webSettings = webview_map.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        webview_map.loadUrl("https://maps.vnpost.vn/bando-chongdich/");
     }
 }
