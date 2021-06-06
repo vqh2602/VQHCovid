@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VQHCovid"
         android:usesCleartextTraffic="true">
+        <activity android:name=".NewsActivity"/>
         <activity android:name=".LoginActivity">
             </activity>
         <activity android:name=".MapActivity" />
