@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item android:id="@+id/Home_main"
-            android:title="Login/Logout"
+            android:title="Tài Khoản"
             android:icon="@drawable/customer_70px" />
         <item android:id="@+id/mask_main"
             android:title="Sức Khoẻ"

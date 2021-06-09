@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,9 +46,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     String check = "0";
 
-    private AccountAuthService mAuthManager;
-    private AccountAuthParams mAuthParam;
-    String displayname_check ="";
+
+    String displayname_check ="",fullname,disname,imgurl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -234,13 +234,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         if (id == R.id.Home_main) {
             //check
+            //check
             if(displayname_check != null){
-                logout();
+                dlaccount();
             }
             else {
+                Toast.makeText(HomeActivity.this,"Bạn Chưa Đăng Nhập",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
+
             }
 
 
@@ -287,6 +290,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private void dulieuinten(){
         Intent intent = getIntent();
         String displayname = intent.getStringExtra("Displayname");
+        fullname = intent.getStringExtra("fullname");
+        imgurl = intent.getStringExtra("Imangeurl");
+        disname =  intent.getStringExtra("Displayname");
         displayname_check = displayname;
             //check
             if(displayname_check != null){
@@ -298,28 +304,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
 
 
+
+    }
+    //truyendulieu account
+    private void dlaccount(){
+        Intent intent = new Intent(HomeActivity.this,AccountActivity.class);
+        intent.putExtra("Displayname", disname);
+        intent.putExtra("fullname", fullname);
+        intent.putExtra("Imangeurl", imgurl);
+        startActivity(intent);
+        finish();
     }
 
-    //logout
-    private void logout(){
-        // tạo servier
-        mAuthParam = new AccountAuthParamsHelper(AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM)
-                .setIdToken()
-                .setAccessToken()
-                .createParams();
-        mAuthManager = AccountAuthManager.getService(HomeActivity.this, mAuthParam);
-        // đăng xuất
-        Task<Void> signOutTask = mAuthManager.signOut();
-        signOutTask.addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(Task<Void> task) {
-                //Processing after the sign-out.
-                Log.i("MainActivitylogout", "signOut complete");
-                Toast.makeText(HomeActivity.this,"Đã Đăng Xuất" ,Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-    }
+
 }

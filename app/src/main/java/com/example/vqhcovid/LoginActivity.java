@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 //                startActivityForResult(service.getSignInIntent(), 8888);
 
                 AccountAuthParams authParams = new AccountAuthParamsHelper
-                        (AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM).setIdToken().createParams();
+                        (AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM).setEmail().setProfile().setIdToken().setMobileNumber().createParams();
                 AccountAuthService service = AccountAuthManager.getService(LoginActivity.this, authParams);
                 startActivityForResult(service.getSignInIntent(), 8888);
             }
@@ -65,14 +65,17 @@ public class LoginActivity extends AppCompatActivity {
             if (authAccountTask.isSuccessful()) {
                 // The sign-in is successful, and the user's ID information and ID token are obtained.
                 AuthAccount authAccount = authAccountTask.getResult();
-                Log.i("LoginActivity", "idToken:" + authAccount.getIdToken());
-                // Obtain the ID type (0: HUAWEI ID; 1: AppTouch ID).
-                Log.i("LoginActivity", "accountFlag:" + authAccount.getAccountFlag());
-                // lấy tên
-                Log.i("LoginActivity", "accountname:" + authAccount.getDisplayName());
+//                Log.i("LoginActivity", "idToken:" + authAccount.getIdToken());
+//                // Obtain the ID type (0: HUAWEI ID; 1: AppTouch ID).
+//                Log.i("LoginActivity", "accountFlag:"+ authAccount.getFamilyName () + authAccount.getGivenName());
+//                // lấy tên
+//
+//                Log.i("LoginActivitymg", "img:" + authAccount.getAccountFlag());
                 //TRUYEN DL
                 Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                 intent.putExtra("Displayname", authAccount.getDisplayName());
+                intent.putExtra("fullname", authAccount.getFamilyName ()+" " + authAccount.getGivenName());
+                intent.putExtra("Imangeurl", authAccount.getAvatarUriString());
                 startActivity(intent);
                 finish();
             } else {

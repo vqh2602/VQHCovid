@@ -2,13 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vqhcovid">
     <!-- thêm để ket noi internet và android:usesCleartextTraffic="true" đẻ fix lỗi chuối khi get api -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <!--check network permissions-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--check wifi state-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<!--    location-->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- check network permissions -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- check wifi state -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- location -->
     <uses-permission android:name="android.permission.ACCESS_GPS" />
     <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION" />
@@ -24,16 +20,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VQHCovid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NewsActivity"/>
-        <activity android:name=".LoginActivity">
-            </activity>
+        <activity android:name=".AccountActivity"></activity>
+        <activity android:name=".NewsActivity" />
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".MapActivity" />
         <activity android:name=".WebviewActivity" />
         <activity android:name=".PreventionCovidActivity" />
         <activity android:name=".Chartcovid" />
-        <activity android:name=".HomeActivity" >
-
-        </activity>
+        <activity android:name=".HomeActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
