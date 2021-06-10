@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.vqhcovid">
     <!-- thêm để ket noi internet và android:usesCleartextTraffic="true" đẻ fix lỗi chuối khi get api -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- check network permissions -->
@@ -20,14 +21,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VQHCovid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AccountActivity"></activity>
+<!--        tools:replace="android:appComponentFactory"-->
+<!--        android:appComponentFactory="android.support.v4.app.CoreComponentFactory">-->
+        <meta-data
+            android:name="com.huawei.hms.client.channel.androidMarket"
+            android:value="false" />
+
+        <activity android:name=".AccountActivity" />
         <activity android:name=".NewsActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".WebviewActivity" />
         <activity android:name=".PreventionCovidActivity" />
         <activity android:name=".Chartcovid" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,5 +43,11 @@
             </intent-filter>
         </activity>
     </application>
+
+    <queries>
+        <intent>
+            <action android:name="com.huawei.hms.core.aidlservice" />
+        </intent>
+    </queries>
 
 </manifest>
