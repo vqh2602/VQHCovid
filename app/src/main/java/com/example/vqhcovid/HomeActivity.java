@@ -261,6 +261,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             //Toast.makeText(HomeActivity.this,"mask click",Toast.LENGTH_LONG).show();
             Intent intent = new Intent(HomeActivity.this, MapActivity.class);
             startActivity(intent);
+        }else if (id == R.id.QR_main) {
+                //Toast.makeText(HomeActivity.this,"mask click",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(HomeActivity.this, QRscanActivity.class);
+                startActivity(intent);
+
         }else if (id == R.id.sp_ins) {
             Toast.makeText(HomeActivity.this, "ins click", Toast.LENGTH_LONG).show();
             GoToURL("https://www.instagram.com/vqh.2602");
@@ -313,8 +318,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         intent.putExtra("fullname", fullname);
         intent.putExtra("Imangeurl", imgurl);
         startActivity(intent);
-        finish();
     }
 
-
+//onclick ->xxhdpi
+    public void onClick(View v) {
+        Intent intent = new Intent(HomeActivity.this, NewsActivity.class);
+        startActivity(intent);
+    }
 }

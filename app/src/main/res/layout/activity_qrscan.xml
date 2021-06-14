@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".QRscanActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -14,30 +14,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/imageButton_Login"
-            android:layout_width="380dp"
-            android:layout_height="143dp"
-            android:background="@null"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/hw_singin_light_red_english"
-            tools:ignore="MissingConstraints" />
-
         <Button
-            android:id="@+id/button_skip"
+            android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/white"
-            android:fontFamily="sans-serif-condensed-light"
-            android:text="Bỏ qua"
-            android:textColor="#5A5A5A"
+            android:layout_marginTop="10dp"
+            android:text="Scan"
+            android:onClick="newViewBtnClick"
+            app:layout_constraintEnd_toEndOf="@+id/textView_Qr"
+            app:layout_constraintStart_toStartOf="@+id/textView_Qr"
+            app:layout_constraintTop_toBottomOf="@+id/textView_Qr" />
+
+        <TextView
+            android:id="@+id/textView_Qr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nội dung Scan"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton_Login" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

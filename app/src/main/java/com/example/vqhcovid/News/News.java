@@ -1,4 +1,4 @@
-package com.example.vqhcovid;
+package com.example.vqhcovid.News;
 
 public class News {
     public String title;

@@ -12,6 +12,21 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <!--Camera permissions-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--Read file permission-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--Using Features-->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+
+    <queries>
+        <intent>
+            <action android:name="com.huawei.hms.core.aidlservice" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_virus"
@@ -20,13 +35,16 @@
         android:roundIcon="@mipmap/ic_launcher_virus_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VQHCovid"
-        android:usesCleartextTraffic="true">
-<!--        tools:replace="android:appComponentFactory"-->
-<!--        android:appComponentFactory="android.support.v4.app.CoreComponentFactory">-->
+        android:usesCleartextTraffic="true"
+        tools:replace="android:appComponentFactory"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory">
+
+    <!-- tools:replace="android:appComponentFactory" -->
+        <!-- android:appComponentFactory="android.support.v4.app.CoreComponentFactory"> -->
         <meta-data
             android:name="com.huawei.hms.client.channel.androidMarket"
             android:value="false" />
-
+        <activity android:name=".QRscanActivity" />
         <activity android:name=".AccountActivity" />
         <activity android:name=".NewsActivity" />
         <activity android:name=".LoginActivity" />
@@ -43,11 +61,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <queries>
-        <intent>
-            <action android:name="com.huawei.hms.core.aidlservice" />
-        </intent>
-    </queries>
 
 </manifest>

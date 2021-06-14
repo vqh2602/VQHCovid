@@ -9,6 +9,9 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.vqhcovid.News.News;
+import com.example.vqhcovid.News.NewsAdapter;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
