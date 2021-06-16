@@ -5,7 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AccountActivity"
-    android:background="@drawable/bg_acc_1">
+    >
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gif_bar2"
+        />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView5"
