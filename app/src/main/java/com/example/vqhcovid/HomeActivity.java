@@ -266,6 +266,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent = new Intent(HomeActivity.this, QRscanActivity.class);
                 startActivity(intent);
 
+        }else if (id == R.id.Weather_main) {
+            //Toast.makeText(HomeActivity.this,"mask click",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(HomeActivity.this, WeatherActivity.class);
+            startActivity(intent);
+
         }else if (id == R.id.sp_ins) {
             Toast.makeText(HomeActivity.this, "ins click", Toast.LENGTH_LONG).show();
             GoToURL("https://www.instagram.com/vqh.2602");
@@ -323,6 +328,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 //onclick ->xxhdpi
     public void onClick(View v) {
         Intent intent = new Intent(HomeActivity.this, NewsActivity.class);
+//        Intent intent = new Intent(HomeActivity.this, InformationRssActivity.class);
         startActivity(intent);
     }
 }

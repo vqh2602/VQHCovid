@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
@@ -67,9 +69,27 @@ public class QRscanActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(((HmsScan) obj).getOriginalValue())) {
 //                    Toast.makeText(this, ((HmsScan) obj).getOriginalValue(), Toast.LENGTH_SHORT).show();
                     textView_Qr.setText(((HmsScan) obj).getOriginalValue());
+                    String s = ((HmsScan) obj).getOriginalValue().substring(0,4);
+                    if(s.equals("http")){
+                        Toast.makeText(this, "Bạn sẽ được chuyển hướng sau 3 giây", Toast.LENGTH_SHORT).show();
+                        openurl(((HmsScan) obj).getOriginalValue());
+                    }else {
+                        Toast.makeText(this, "Hãy quét các mã Qr có hỗ trợ KBYT để KBYT", Toast.LENGTH_LONG).show();
+                    }
                 }
                 return;
             }
         }
+    }
+
+    private void openurl(String s){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Uri uri = Uri.parse(s);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        },3000);
     }
 }
