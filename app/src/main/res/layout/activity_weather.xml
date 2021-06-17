@@ -71,6 +71,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewwind" />
 
     <TextView
+        android:id="@+id/textViewuv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UV: . . ."
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewhum"
+        app:layout_constraintTop_toBottomOf="@+id/textViewhum" />
+
+    <TextView
         android:id="@+id/textViewweatherid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,25 +96,95 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewwtid"
         app:layout_constraintVertical_bias="0.608" />
 
-    <com.tomerrosenfeld.customanalogclockview.CustomAnalogClock
-        android:id="@+id/analog_clock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        app:default_watchface="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewhum"
-        tools:ignore="MissingConstraints" />
+<!--    <com.tomerrosenfeld.customanalogclockview.CustomAnalogClock-->
+<!--        android:id="@+id/analog_clock"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="112dp"-->
+<!--        app:default_watchface="true"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textViewhum"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
     <DigitalClock
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
         android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="@+id/analog_clock"
-        app:layout_constraintStart_toStartOf="@+id/analog_clock"
-        app:layout_constraintTop_toBottomOf="@+id/analog_clock"
-        tools:ignore="MissingConstraints"
-        android:textColor="@color/white"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewrealtemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cảm giác như: . . ."
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/textViewtemp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewtemp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewuv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView37"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3949AB"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Thời tiết 24 giờ tới"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
+                <ListView
+                    android:id="@+id/listview_24h"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView38"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3949AB"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Thời tiết 7 ngày tới"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+
+                <ListView
+                    android:id="@+id/listview_7days"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
