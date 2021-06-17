@@ -2,6 +2,7 @@ package com.example.vqhcovid;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -21,6 +22,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,12 +45,17 @@ import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class WeatherActivity extends AppCompatActivity {
     private static final String TAG = "weather";
     TextView textViewtemp, textViewweatherid, textViewcity, textViewwind, textViewhum, textViewrealtemp,textViewuv;
     ImageView imageViewwtid;
+    TextClock textClock;
+    ConstraintLayout layout_weather;
 
     ListView listview_24h;
     Adapterweather24 Adapterweather24;
@@ -62,9 +69,6 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // làm mờ background
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
-                WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
         setContentView(R.layout.activity_weather);
 
 
@@ -86,7 +90,16 @@ public class WeatherActivity extends AppCompatActivity {
         GPScheck();
 
         changeGPS();
-
+//backgrounf ngayf / ddeem
+        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
+        textClock.getFormat12Hour();
+        Log.i("clock1",currentTime+"\n" );
+        if(Integer.parseInt(currentTime) > 17){
+            layout_weather.setBackgroundResource(R.drawable.bg_night);
+        }else {
+            layout_weather.setBackgroundResource(R.drawable.bg_morning);
+        }
         // xửa lí adapter
         set24hourweather();
         set7daysweather();
@@ -112,7 +125,10 @@ public class WeatherActivity extends AppCompatActivity {
         imageViewwtid =findViewById(R.id.imageViewwtid);
         textViewrealtemp = findViewById(R.id.textViewrealtemp);
         textViewuv = findViewById(R.id.textViewuv);
+        textClock = findViewById(R.id.textclock);
+        layout_weather = findViewById(R.id.layout_weather);
     }
+
     //check quyen vi tri
     private void GPScheck(){
         int permission_internet = ContextCompat.checkSelfPermission(this,
@@ -179,17 +195,17 @@ public class WeatherActivity extends AppCompatActivity {
             case  1:
                 // nắng ...
                 textViewweatherid.setText("Trời nắng");
-                imageViewwtid.setImageResource(R.drawable.sun_50px);
+                imageViewwtid.setImageResource(R.drawable.sun_50px_color);
                 break;
             case  2:
                 // mây ngắt quãng, nắng mờ...
                 textViewweatherid.setText("Có mây");
-                imageViewwtid.setImageResource(R.drawable.partly_cloudy_day_50px);
+                imageViewwtid.setImageResource(R.drawable.partly_cloudy_day_50px_color);
                 break;
             case  3:
                 // nhieu mây ...
                 textViewweatherid.setText("Nhiều mây");
-                imageViewwtid.setImageResource(R.drawable.windy_weather_50px);
+                imageViewwtid.setImageResource(R.drawable.cloud_50px_color);
                 break;
             case  4:
                 // sương ...
@@ -199,17 +215,17 @@ public class WeatherActivity extends AppCompatActivity {
             case  5:
                 // mưa ...
                 textViewweatherid.setText("Có mưa");
-                imageViewwtid.setImageResource(R.drawable.rain_50px);
+                imageViewwtid.setImageResource(R.drawable.rain_50px_color);
                 break;
             case  6:
                 // dông ...
                 textViewweatherid.setText("Có dông");
-                imageViewwtid.setImageResource(R.drawable.cloud_lightning_50px);
+                imageViewwtid.setImageResource(R.drawable.storm_50px_color);
                 break;
             case  7:
                 // có tuyết ...
                 textViewweatherid.setText("Có tuyết");
-                imageViewwtid.setImageResource(R.drawable.partly_cloudy_day_50px);
+                imageViewwtid.setImageResource(R.drawable.snow_50px_color);
                 break;
             case  8:
                 // đóng băng ...
@@ -219,7 +235,7 @@ public class WeatherActivity extends AppCompatActivity {
             case  9:
                 // mưa và tuyết ...
                 textViewweatherid.setText("Có mưa tuyết");
-                imageViewwtid.setImageResource(R.drawable.sleet_50px);
+                imageViewwtid.setImageResource(R.drawable.sleet_50px_color);
                 break;
             default:
                 // Làm gì đó tại đây ...
@@ -362,9 +378,9 @@ private void getnowweather(){
                             String rain ="Tỷ lệ mưa: "+  hourlyWeather.get(i).getRainprobability() +" %";
                             int urlimage;
                             if(hourlyWeather.get(i).isDayNight()){
-                                urlimage = R.drawable.daysun_50px;
+                                urlimage = R.drawable.daysun_50px_color;
                             }else {
-                                urlimage = R.drawable.moon_50px;
+                                urlimage = R.drawable.moon_50px_color;
                             }
 
                             list_24h.add(new Weather24(time,day_night,temp,rain,urlimage));
@@ -496,7 +512,7 @@ private void getDailyWeather(){
             case  7:
                 // có tuyết ...
                 troi = "Có tuyết";
-                imageUrl = R.drawable.partly_cloudy_day_50px;
+                imageUrl = R.drawable.snow_50px;
                 break;
             case  8:
                 // đóng băng ...

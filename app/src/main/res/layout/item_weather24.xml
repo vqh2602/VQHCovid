@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="66dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/daysun_50px"
+            app:srcCompat="@drawable/daysun_50px_color"
             android:layout_gravity="center"/>
 
         <LinearLayout
