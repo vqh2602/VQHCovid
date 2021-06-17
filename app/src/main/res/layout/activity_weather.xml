@@ -146,7 +146,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <TextView
                     android:id="@+id/textView37"
@@ -161,7 +162,8 @@
                 <ListView
                     android:id="@+id/listview_24h"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_black_blur"/>
             </LinearLayout>
 
             <LinearLayout
@@ -183,7 +185,8 @@
                 <ListView
                     android:id="@+id/listview_7days"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_black_blur"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

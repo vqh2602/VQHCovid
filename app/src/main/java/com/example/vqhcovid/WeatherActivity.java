@@ -62,7 +62,11 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // làm mờ background
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
+                WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
         setContentView(R.layout.activity_weather);
+
 
         Toast.makeText(WeatherActivity.this,"Đang tải dữ liệu . . .",Toast.LENGTH_LONG).show();
         //full màn
