@@ -52,10 +52,11 @@ import java.util.Locale;
 
 public class WeatherActivity extends AppCompatActivity {
     private static final String TAG = "weather";
-    TextView textViewtemp, textViewweatherid, textViewcity, textViewwind, textViewhum, textViewrealtemp,textViewuv;
-    ImageView imageViewwtid;
+    TextView textViewtemp, textViewweatherid, textViewcity, textViewwind, textViewhum, textViewrealtemp,textViewuv,
+            textView_7,textView_24;
+    ImageView imageViewwtid,imageView_background;
     TextClock textClock;
-    ConstraintLayout layout_weather;
+
 
     ListView listview_24h;
     Adapterweather24 Adapterweather24;
@@ -96,9 +97,14 @@ public class WeatherActivity extends AppCompatActivity {
         textClock.getFormat12Hour();
         Log.i("clock1",currentTime+"\n" );
         if(Integer.parseInt(currentTime) > 17){
-            layout_weather.setBackgroundResource(R.drawable.bg_night);
+            imageView_background.setImageResource(R.drawable.bg_night);
+            textView_7.setBackgroundResource(R.color.bg_text_night);
+            textView_24.setBackgroundResource(R.color.bg_text_night);
+
         }else {
-            layout_weather.setBackgroundResource(R.drawable.bg_morning);
+            imageView_background.setImageResource(R.drawable.bg_morning);
+            textView_7.setBackgroundResource(R.color.bg_text_morning);
+            textView_24.setBackgroundResource(R.color.bg_text_morning);
         }
         // xửa lí adapter
         set24hourweather();
@@ -126,7 +132,9 @@ public class WeatherActivity extends AppCompatActivity {
         textViewrealtemp = findViewById(R.id.textViewrealtemp);
         textViewuv = findViewById(R.id.textViewuv);
         textClock = findViewById(R.id.textclock);
-        layout_weather = findViewById(R.id.layout_weather);
+        imageView_background = findViewById(R.id.imageView_background);
+        textView_7 = findViewById(R.id.textView_7);
+        textView_24 = findViewById(R.id.textView_24);
     }
 
     //check quyen vi tri

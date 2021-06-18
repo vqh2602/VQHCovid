@@ -9,6 +9,21 @@
     android:id="@+id/layout_weather"
     tools:ignore="InvalidId">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/bg_morning"
+            android:scaleType="centerCrop"/>
+    </FrameLayout>
+
     <TextView
         android:id="@+id/textViewtemp"
         android:layout_width="wrap_content"
@@ -154,10 +169,10 @@
                 >
 
                 <TextView
-                    android:id="@+id/textView37"
+                    android:id="@+id/textView_24"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#1875C6"
+                    android:background="#9E2652"
                     android:fontFamily="sans-serif-black"
                     android:text="Thời tiết 24 giờ tới"
                     android:textColor="@color/white"
@@ -177,7 +192,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView38"
+                    android:id="@+id/textView_7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#1875C6"
