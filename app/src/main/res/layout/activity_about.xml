@@ -45,6 +45,20 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
+  <TextView
+      android:id="@+id/textView_website"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:onClick="onClickweb"
+      android:text="Truy cập website"
+      android:textColor="@color/purple_700"
+      android:textSize="15sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
   <ImageView
       android:id="@+id/imageView22"
       android:layout_width="wrap_content"
@@ -98,13 +112,13 @@
       android:id="@+id/textView33"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="44dp"
+      android:layout_marginTop="8dp"
       android:text="Ứng dụng có sử dụng dữ liệu từ các nguồn"
       android:textSize="15sp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.496"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView35"
+      app:layout_constraintTop_toBottomOf="@+id/textView_website"
       tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

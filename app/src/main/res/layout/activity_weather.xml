@@ -10,6 +10,7 @@
     tools:ignore="InvalidId">
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,8 +21,8 @@
             android:id="@+id/imageView_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/bg_morning"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/bg_morning" />
     </FrameLayout>
 
     <TextView
@@ -153,8 +154,7 @@
         android:layout_height="450dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewuv">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -165,8 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView_24"
@@ -182,7 +181,7 @@
                     android:id="@+id/listview_24h"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_black_blur"/>
+                    android:background="@drawable/bg_black_blur" />
             </LinearLayout>
 
             <LinearLayout
@@ -205,7 +204,7 @@
                     android:id="@+id/listview_7days"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_black_blur"/>
+                    android:background="@drawable/bg_black_blur" />
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

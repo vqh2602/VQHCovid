@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.vqhcovid" >
+    package="com.example.vqhcovidmain" >
     <!-- thêm để ket noi internet và android:usesCleartextTraffic="true" đẻ fix lỗi chuối khi get api -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- check network permissions -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- check wifi state -->
@@ -38,7 +38,7 @@
         android:theme="@style/Theme.VQHCovid"
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory" >
-        <activity android:name=".AboutActivity" >
+        <activity android:name="com.example.vqhcovidmain.AboutActivity" >
         </activity>
         <!-- tools:replace="android:appComponentFactory" -->
         <!-- android:appComponentFactory="android.support.v4.app.CoreComponentFactory"> -->
@@ -53,7 +53,7 @@
             android:value="false" />
 
         <service
-            android:name=".HmsMessageService"
+            android:name="com.example.vqhcovidmain.HmsMessageService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
@@ -64,19 +64,19 @@
             android:name="push_kit_auto_init_enabled"
             android:value="true" />
 
-        <activity android:name=".WeatherActivity" >
+        <activity android:name="com.example.vqhcovidmain.WeatherActivity" >
         </activity>
-        <activity android:name=".QRscanActivity" />
-        <activity android:name=".AccountActivity" />
-        <activity android:name=".NewsActivity" />
-        <activity android:name=".InformationRssActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MapActivity" />
-        <activity android:name=".WebviewActivity" />
-        <activity android:name=".PreventionCovidActivity" />
-        <activity android:name=".Chartcovid" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name="com.example.vqhcovidmain.QRscanActivity" />
+        <activity android:name="com.example.vqhcovidmain.AccountActivity" />
+        <activity android:name="com.example.vqhcovidmain.NewsActivity" />
+        <activity android:name="com.example.vqhcovidmain.InformationRssActivity" />
+        <activity android:name="com.example.vqhcovidmain.LoginActivity" />
+        <activity android:name="com.example.vqhcovidmain.MapActivity" />
+        <activity android:name="com.example.vqhcovidmain.WebviewActivity" />
+        <activity android:name="com.example.vqhcovidmain.PreventionCovidActivity" />
+        <activity android:name="com.example.vqhcovidmain.Chartcovid" />
+        <activity android:name="com.example.vqhcovidmain.HomeActivity" />
+        <activity android:name="com.example.vqhcovidmain.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

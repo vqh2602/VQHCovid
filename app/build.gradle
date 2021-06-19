@@ -7,7 +7,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.example.vqhcovid"
+        applicationId "com.example.vqhcovidmain"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
@@ -66,5 +66,8 @@ dependencies {
     compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.1'
     //gif
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
+
+    //chuỗi thư viện báo thức
+    
 
 }

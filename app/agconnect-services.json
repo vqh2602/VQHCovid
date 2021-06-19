@@ -17,21 +17,21 @@
 	},
 	"client":{
 		"cp_id":"2640084000000837561",
-		"product_id":"736430079245733388",
-		"client_id":"634074793397730240",
-		"client_secret":"1B3F6FAD353E772859BE224AED67DE25D1CE805723D2B942972259BAC3449E13",
-		"project_id":"736430079245733388",
-		"app_id":"104353535",
-		"api_key":"CgB6e3x9pU7dsb3IvZA+LYt/XRBeEO3Hn6MM4sQnni5mYCGRzLt0XcCpX9JPuyi58n8F6BPwvzw1Gv3oVAS5kJQl",
-		"package_name":"com.example.vqhcovid"
+		"product_id":"736430079245798629",
+		"client_id":"652834419106645184",
+		"client_secret":"E1BF1A3757CE19E4635B472626F99E82EC87DA2C5E7AD3B02462BFE695D6F24E",
+		"project_id":"736430079245798629",
+		"app_id":"104441023",
+		"api_key":"CgB6e3x9nwaw3i1fljRnRV84GWK12GwR+qFMTHKT+o4R7txBfl0yhxZw3pUIWPT8ugMKab6EkrXSLF3uqK62RjaV",
+		"package_name":"com.example.vqhcovidmain"
 	},
 	"oauth_client":{
-		"client_id":"104353535",
+		"client_id":"104441023",
 		"client_type":1
 	},
 	"app_info":{
-		"app_id":"104353535",
-		"package_name":"com.example.vqhcovid"
+		"app_id":"104441023",
+		"package_name":"com.example.vqhcovidmain"
 	},
 	"service":{
 		"analytics":{
@@ -53,17 +53,17 @@
 	"configuration_version":"3.0",
 	"appInfos":[
 		{
-			"package_name":"com.example.vqhcovid",
+			"package_name":"com.example.vqhcovidmain",
 			"client":{
-				"app_id":"104353535"
+				"app_id":"104441023"
 			},
 			"app_info":{
-				"package_name":"com.example.vqhcovid",
-				"app_id":"104353535"
+				"package_name":"com.example.vqhcovidmain",
+				"app_id":"104441023"
 			},
 			"oauth_client":{
 				"client_type":1,
-				"client_id":"104353535"
+				"client_id":"104441023"
 			}
 		}
 	]
