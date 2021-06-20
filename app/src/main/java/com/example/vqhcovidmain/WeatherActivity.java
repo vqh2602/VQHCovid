@@ -40,7 +40,9 @@ import com.huawei.hms.kit.awareness.status.weather.WeatherSituation;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class WeatherActivity extends AppCompatActivity {
@@ -85,57 +87,7 @@ public class WeatherActivity extends AppCompatActivity {
 
         changeGPS();
 //backgrounf ngayf / ddeem
-//        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-//        String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
-//        textClock.getFormat12Hour();
-//        Log.i("clock1",currentTime+"\n" );
-//        if(Integer.parseInt(currentTime) > 17){
-//            imageView_background.setImageResource(R.drawable.bg_night);
-//            textView_7.setBackgroundResource(R.color.bg_text_night);
-//            textView_24.setBackgroundResource(R.color.bg_text_night);
 //
-//        }else {
-//            imageView_background.setImageResource(R.drawable.bg_morning);
-//            textView_7.setBackgroundResource(R.color.bg_text_morning);
-//            textView_24.setBackgroundResource(R.color.bg_text_morning);
-//        }
-        Random rn = new Random();
-        int answer = rn.nextInt(3) + 1;
-//        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-//        String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
-//        textClock.getFormat12Hour();
-        Log.i("clock1",answer+"\n" );
-//        if(Integer.parseInt(currentTime) > 17){
-//            imageView_background.setImageResource(R.drawable.bg_night);
-//            textView_7.setBackgroundResource(R.color.bg_text_night);
-//            textView_24.setBackgroundResource(R.color.bg_text_night);
-//
-//        }else {
-//            imageView_background.setImageResource(R.drawable.bg_morning);
-//            textView_7.setBackgroundResource(R.color.bg_text_morning);
-//            textView_24.setBackgroundResource(R.color.bg_text_morning);
-//        }
-        switch ( answer ) {
-            case  1:
-                // nắng ...
-                imageView_background.setImageResource(R.drawable.bg_morning);
-                textView_7.setBackgroundResource(R.color.bg_text_morning);
-                textView_24.setBackgroundResource(R.color.bg_text_morning);
-                break;
-            case  2:
-                imageView_background.setImageResource(R.drawable.bg_night);
-                textView_7.setBackgroundResource(R.color.bg_text_night);
-                textView_24.setBackgroundResource(R.color.bg_text_night);
-                break;
-            case  3:
-                // nhieu mây ...
-                imageView_background.setImageResource(R.drawable.bg_weather);
-                textView_7.setBackgroundResource(R.color.bg_text_night_blue);
-                textView_24.setBackgroundResource(R.color.bg_text_night_blue);
-                break;
-            default:
-                // Làm gì đó tại đây ...
-        }
 
         // xửa lí adapter
         set24hourweather();
@@ -234,12 +186,24 @@ public class WeatherActivity extends AppCompatActivity {
             case  1:
                 // nắng ...
                 textViewweatherid.setText("Trời nắng");
-                imageViewwtid.setImageResource(R.drawable.sun_50px_color);
+                if(checkdaynight()){
+                    imageViewwtid.setImageResource(R.drawable.sun_50px_color);
+                }
+                else {
+                    imageViewwtid.setImageResource(R.drawable.wmoon_50px_color);
+                }
+
                 break;
             case  2:
                 // mây ngắt quãng, nắng mờ...
                 textViewweatherid.setText("Có mây");
-                imageViewwtid.setImageResource(R.drawable.partly_cloudy_day_50px_color);
+                if(checkdaynight()){
+                    imageViewwtid.setImageResource(R.drawable.partly_cloudy_day_50px_color);
+                }
+                else {
+                    imageViewwtid.setImageResource(R.drawable.partlyclould_night_50px_color);
+                }
+
                 break;
             case  3:
                 // nhieu mây ...
@@ -565,6 +529,76 @@ private void getDailyWeather(){
                 break;
             default:
                 // Làm gì đó tại đây ...
+        }
+    }
+
+    //random change backround
+    private void changebackground(){
+//        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+//        String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
+//        textClock.getFormat12Hour();
+//        Log.i("clock1",currentTime+"\n" );
+//        if(Integer.parseInt(currentTime) > 17){
+//            imageView_background.setImageResource(R.drawable.bg_night);
+//            textView_7.setBackgroundResource(R.color.bg_text_night);
+//            textView_24.setBackgroundResource(R.color.bg_text_night);
+//
+//        }else {
+//            imageView_background.setImageResource(R.drawable.bg_morning);
+//            textView_7.setBackgroundResource(R.color.bg_text_morning);
+//            textView_24.setBackgroundResource(R.color.bg_text_morning);
+//        }
+
+//        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+//        String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
+//        textClock.getFormat12Hour();
+//        Log.i("clock1",answer+"\n" );
+//        if(Integer.parseInt(currentTime) > 17){
+//            imageView_background.setImageResource(R.drawable.bg_night);
+//            textView_7.setBackgroundResource(R.color.bg_text_night);
+//            textView_24.setBackgroundResource(R.color.bg_text_night);
+//
+//        }else {
+//            imageView_background.setImageResource(R.drawable.bg_morning);
+//            textView_7.setBackgroundResource(R.color.bg_text_morning);
+//            textView_24.setBackgroundResource(R.color.bg_text_morning);
+//        }
+        Random rn = new Random();
+        int answer = rn.nextInt(3) + 1;
+        switch ( answer ) {
+            case  1:
+                // nắng ...
+                imageView_background.setImageResource(R.drawable.bg_morning);
+                textView_7.setBackgroundResource(R.color.bg_text_morning);
+                textView_24.setBackgroundResource(R.color.bg_text_morning);
+                break;
+            case  2:
+                imageView_background.setImageResource(R.drawable.bg_night);
+                textView_7.setBackgroundResource(R.color.bg_text_night);
+                textView_24.setBackgroundResource(R.color.bg_text_night);
+                break;
+            case  3:
+                // nhieu mây ...
+                imageView_background.setImageResource(R.drawable.bg_weather);
+                textView_7.setBackgroundResource(R.color.bg_text_night_blue);
+                textView_24.setBackgroundResource(R.color.bg_text_night_blue);
+                break;
+            default:
+                // Làm gì đó tại đây ...
+        }
+    }
+
+    // kiểm tra ngày hay đêm
+    private boolean checkdaynight(){
+        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        String currentTime = new SimpleDateFormat("HH", Locale.getDefault()).format(new Date());
+        textClock.getFormat12Hour();
+        Log.i("clock1",currentTime+"\n" );
+        if(Integer.parseInt(currentTime) < 18){
+            return true;
+
+        }else {
+            return  false;
         }
     }
 }
