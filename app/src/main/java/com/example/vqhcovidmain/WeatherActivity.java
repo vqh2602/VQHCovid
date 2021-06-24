@@ -88,7 +88,7 @@ public class WeatherActivity extends AppCompatActivity {
         changeGPS();
 //backgrounf ngayf / ddeem
 //
-
+changebackground();
         // xửa lí adapter
         set24hourweather();
         set7daysweather();
