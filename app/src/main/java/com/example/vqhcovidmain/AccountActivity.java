@@ -135,6 +135,7 @@ public class AccountActivity extends AppCompatActivity {
                 Log.i("MainActivitylogout", "signOut complete");
                 Toast.makeText(AccountActivity.this,"Đã Đăng Xuất" ,Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(AccountActivity.this,LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
             }

@@ -26,9 +26,9 @@
             <action android:name="com.huawei.hms.core.aidlservice" />
         </intent>
     </queries>
-
+<!--    android:hardwareAccelerated="false"-->
     <application
-        android:hardwareAccelerated="false"
+
         android:allowBackup="true"
         android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher_virus"
