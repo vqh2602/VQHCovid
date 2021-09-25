@@ -22,6 +22,9 @@ import com.example.vqhcovidmain.API.ApiService;
 import com.example.vqhcovidmain.Modul.Covid;
 import com.google.android.material.navigation.NavigationView;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -127,6 +130,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     //lay gia tri tu api
     private void callApi(int i) {
+        // tạo 1 NumberFormat để định dạng số theo tiêu chuẩn của nước Anh
+        Locale localeEN = new Locale("en", "EN");
+        NumberFormat en = NumberFormat.getInstance(localeEN);
+
         if (i == 0) {
             ApiService.apiService.convertapitovn("").enqueue(new Callback<Covid>() {
                 @Override
@@ -136,17 +143,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     if (covid != null) {
 
 
-                        text_canhiem.setText(covid.getCases() + "");
-                        text_dieutri.setText(covid.getActive() + "");
-                        text_hoiphuc.setText(covid.getRecovered() + "");
-                        text_tuvong.setText(covid.getDeaths() + "");
+                        text_canhiem.setText(en.format(covid.getCases()) + "");
+                        text_dieutri.setText(en.format(covid.getActive()) + "");
+                        text_hoiphuc.setText(en.format(covid.getRecovered()) + "");
+                        text_tuvong.setText(en.format(covid.getDeaths()) + "");
                         Toast.makeText(HomeActivity.this, "Lấy dữ liệu thành công", Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Covid> call, Throwable t) {
-                    Toast.makeText(HomeActivity.this, "Lỗi Lấy dữ liệu", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomeActivity.this, "Lỗi Lấy dữ liệu covid việt nam", Toast.LENGTH_SHORT).show();
                 }
             });
         } else {
@@ -155,17 +162,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 public void onResponse(Call<Covid> call, Response<Covid> response) {
                     Covid covid = response.body();
                     if (covid != null) {
-                        text_canhiem.setText(covid.getCases() + "");
-                        text_dieutri.setText(covid.getActive() + "");
-                        text_hoiphuc.setText(covid.getRecovered() + "");
-                        text_tuvong.setText(covid.getDeaths() + "");
+                        text_canhiem.setText(en.format(covid.getCases()) + "");
+                        text_dieutri.setText(en.format(covid.getActive()) + "");
+                        text_hoiphuc.setText(en.format(covid.getRecovered()) + "");
+                        text_tuvong.setText(en.format(covid.getDeaths()) + "");
                         Toast.makeText(HomeActivity.this, "Lấy dữ liệu thành công", Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Covid> call, Throwable t) {
-
+                    Toast.makeText(HomeActivity.this, "Lỗi Lấy dữ liệu covid thế giới", Toast.LENGTH_SHORT).show();
                 }
             });
         }
