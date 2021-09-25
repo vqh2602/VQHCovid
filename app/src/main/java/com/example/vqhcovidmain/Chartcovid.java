@@ -3,6 +3,7 @@ package com.example.vqhcovidmain;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,6 +53,8 @@ public class Chartcovid extends AppCompatActivity {
                         int dt = covid.getActive();
                         int hp = covid.getRecovered();
                         int tv = covid.getDeaths();
+
+                        Log.i("chart", "onResponse: "+cn);
                         chart(cn, tv, dt, hp);
 
                     }
@@ -97,6 +100,7 @@ public class Chartcovid extends AppCompatActivity {
         pieEntries.add(new PieEntry(tv, "Tử vong"));
         PieDataSet pieDataSet = new PieDataSet(pieEntries, "");
 
+        pieChart.invalidate();
         pieDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
         pieDataSet.setValueTextColor(Color.BLACK);
         pieDataSet.setValueTextSize(16f);
@@ -107,6 +111,8 @@ public class Chartcovid extends AppCompatActivity {
         pieChart.getDescription().setEnabled(false);
         pieChart.setCenterText("Tổng: " + cn);
         pieChart.animate();
+
+        Log.i("chart", "onResponse: "+"thanh cong");
     }
 
 
